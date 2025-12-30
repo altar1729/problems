@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Problems — Click to expand</title>
+
+  <style>
+    :root{
+      --accent: rebeccapurple; /* change this to any color you want */
+      --summary-font-size: 1rem;
+      --content-font-size: 0.95rem;
+      --gap: 12px;
+      --radius: 8px;
+      --border: #e6e6e6;
+    }
+
+    /* Page layout */
+    body{
+      font-family: Roboto, "Segoe UI", Arial, sans-serif;
+      padding: 18px;
+      color: #222;
+      line-height: 1.6;
+      background: white;
+    }
+
+    h1{
+      font-size: 1.25rem;
+      margin: 0 0 10px 0;
+    }
+
+    .problems {
+      display: block;
+      max-width: 860px;
+      margin-top: 8px;
+    }
+
+    /* Each problem */
+    .problem {
+      display: block;
+      margin-bottom: var(--gap);
+      padding: 8px;
+      border-radius: var(--radius);
+      border: 1px solid transparent; /* visible on focus/open if desired */
+    }
+
+    /* Style the <summary> so it looks like an underlined purple name */
+    .problem > summary{
+      list-style: none; /* hide default marker in some browsers */
+      display: inline-block;
+      cursor: pointer;
+      padding: 0;
+      margin: 0;
+      font-size: var(--summary-font-size);
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1.6px;
+      background: transparent;
+      border: none;
+      outline: none;
+      vertical-align: middle;
+    }
+
+    /* Remove default marker (for WebKit) */
+    .problem summary::-webkit-details-marker { display: none; }
+
+    /* Add a small chevron to the left of the summary */
+    .problem > summary::before{
+      content: "";
+      display: inline-block;
+      width: 0.9em;
+      height: 0.9em;
+      margin-right: 8px;
+      vertical-align: middle;
+      transition: transform .18s ease;
+      /* a simple triangle (CSS) */
+      clip-path: polygon(30% 20%, 30% 80%, 80% 50%);
+      background: var(--accent);
+      opacity: 0.9;
+      transform: rotate(0deg);
+    }
+
+    /* Rotate chevron when open */
+    .problem[open] > summary::before{
+      transform: rotate(90deg);
+    }
+
+    /* Content area: animate open/close with max-height trick */
+    .problem .content{
+      display: block;
+      margin-top: 8px;
+      padding: 10px 12px;
+      font-size: var(--content-font-size);
+      color: #222;
+      background: #fbfbfb;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      max-height: 0;              /* collapsed */
+      transition: max-height .28s ease, opacity .22s ease;
+      opacity: 0;
+    }
+
+    /* When details is open, allow the content to expand */
+    .problem[open] .content{
+      max-height: 800px;         /* large enough for typical abstracts; increase if needed */
+      opacity: 1;
+    }
+
+    /* Make the content text preserve whitespace if you want preformatted LaTeX or code blocks */
+    .problem .content pre, .problem .content code {
+      background: #fff;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #e9e9e9;
+      overflow: auto;
+      font-family: monospace;
+      font-size: 0.9em;
+    }
+
+    /* Keyboard focus styling for accessibility */
+    .problem > summary:focus {
+      outline: 3px solid rgba(112, 66, 255, 0.18);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* Small helper: add a subtle highlight when open */
+    .problem[open] {
+      border-color: #f0e6ff;
+      background: rgba(250, 245, 255, 0.6);
+    }
+
+    /* Responsive tweaks */
+    @m
