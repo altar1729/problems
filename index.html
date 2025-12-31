@@ -98,14 +98,25 @@ The minimum number of sets in an induced saturated family is called the induced 
 <details>
     <summary>Unit Distances</summary>
     <div class="content">
-      <p>asd.</p>
+      <p>Suppose you have $n$ points in the plane. How many unit distances can there be among this $n$ points? Erdős proved a lower bound of $n^{1+O(1/loglog(n))}$ and conjectured that this should be
+      the right asymptotics. The first upper bound has been established by Spencer, Szemerédi and Trotter which is $O(n^{4/3})$. Except special cases, this is still the best upper bound despite many efforts.
+      Recently, <a href="https://arxiv.org/abs/2507.15679" target="_blank" rel="noopener noreferrer">
+ J. Pach, O. E. Raz, and J. Solymosi
+</a> has introduced a new perspective for this problem using rigidity theory which I find really interesting to explore.
+     </p>
     </div>
   </details>
   
   <details>
     <summary>Fourier-Entropy Conjecture</summary>
     <div class="content">
-      <p>Copy a <code>&lt;details&gt;...&lt;/details&gt;</code> block to add another problem.</p>
+      <p>Let $f:\{-1,1\}^n\to \{-1,1\}$ be a Boolean-valued function. We can represent it as a discrete Fourier series in the following form $$f(x):=f(x_1,\ldots,x_n)=\sum_{S\subseteq [n]}\hat{f}(S)\chi_S(x),$$
+        where $\chi_S(x)=\prod_{i\in S}x_i$. By Parseval's identity, we have $\sum_{S\subseteq [n]}\hat{f}(S)^2=1$, thus we can treat $\hat{f}^2$ as a distribution over the subsets of $[n]$. 
+      Define $Ent(\hat{f}^2)=\sum_{S\subseteq [n]}\hat{f}(S)^2log(1/\hat{f}(S)^2)$ to be the Shannon-entropy of this distribution. We also define the influence of the coordinate $i$ as the probability
+      that the value of the function changes when we flip the $i^{th}$ coordinate, i.e. $Inf_i(f)=\mathbb{P}[f(x)\neq f(x^{\oplus i})]$, and the total influence as $Inf(f)=\sum_{i=1}^n Inf_i(f)$, which
+      can be written as $Inf(f)=\sum_{S\subseteq [n]}|S|\hat{f}(S)^2$. The Fourier-Entropy conjecture states that there exists a constant $C>0$ such that for every Boolean function $f$, we have 
+        $$Ent(\hat{f}^2}\leq CInf(f).$$
+      </p>
     </div>
   </details>
 
