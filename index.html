@@ -123,7 +123,19 @@ The minimum number of sets in an induced saturated family is called the induced 
   <details>
     <summary>One-Independent Percolation</summary>
     <div class="content">
-      <p>Copy a <code>&lt;details&gt;...&lt;/details&gt;</code> block to add another problem.</p>
+      <p>There has been a lot of work concerning percolation in the independent setting. Here we let, in a sense, two set of edges $S,T$ to be independent if $V(S)\cap V(T)=\emptyset$. If two edges share
+      a vertex in common, we do not have independence. The set of measures on $G$ which satisfy these one-independence property and for the edge probabilities being open is $p$ is denoted by 
+        $\mathcal{M}_{1,p}(G)$. Lots of problems which are known in the independent setting are open here. I am especially interested in the following: 
+      <ul>
+        <li>Let $f_{1,p}(G):=min(\mu(G \; \text{is connected}\;): \mu\in \mathcal{M}_{1,p})$ denote the connectivity function. What is $f_{1,p}(C_n)$ for $n\geq 6$, where $C_n$ is the cycle on $n$ vertices. </li>
+       <li>Let $p_{max}(G)$ denote the supremum of $p$-values for which there exists a one-independent measure where each edge is open with probability at least $p$ (or with $p$ by a argument), but which does not
+       percolate. What is $p_max(\mathbb{Z}^n}$, or what is $lim_{n\to \infty}p_{max}(\mathbb{Z}^n}$? By a recent result of <a href="https://arxiv.org/abs/2106.08674" target="_blank" rel="noopener noreferrer">
+ V. Falgas-Ravry, V. Pfenninger
+</a> </li> has made some progress towards this by showing that the limit $lim_{n\to \infty}p_{max}(\mathbb{Z}^n\times K_n)=4-2\sqrt{3}$.
+        <li>Is it true that under one-independent models, the threshold probability that there exists a giant component in the hypercube $Q_n$ is $\frac{1}{2}$? By a recent result of <a href="https://arxiv.org/abs/2206.12335" target="_blank" rel="noopener noreferrer">
+ P. Balister, T. Johnston, M. Savery, and A. Scott
+</a>, it is known that $\frac{1}{2}\leq p_{giant}\leq 0.58$</li>
+      </ul></p>
     </div>
   </details>
 
